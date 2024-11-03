@@ -1,10 +1,17 @@
+import { Link } from "react-router-dom";
+import { GiRoyalLove } from "react-icons/gi";
 
 
 const Navbar = () => {
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-[#9538E2] text-white px-8 mt-8 rounded-t-xl">
             <div className="flex-1">
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <a className="text-xl">Gadget Heaven</a>
+            </div>
+            <div className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-8 w-9/12 mx-auto">
+            <Link to="/">Home</Link>
+            <Link to="/statistics">Statistics</Link>
+            <Link to="/dashboard">Dashboard</Link>
             </div>
             <div className="flex-none">
                 <div className="dropdown dropdown-end">
@@ -22,7 +29,7 @@ const Navbar = () => {
                                     strokeWidth="2"
                                     d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                             </svg>
-                            <span className="badge badge-sm indicator-item">8</span>
+                            <span className="badge badge-sm indicator-item"></span>
                         </div>
                     </div>
                     <div
@@ -39,10 +46,8 @@ const Navbar = () => {
                 </div>
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            <img
-                                alt="Tailwind CSS Navbar component"
-                                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                        <div className="text-xl rounded-full">
+                        <GiRoyalLove />
                         </div>
                     </div>
                     <ul
