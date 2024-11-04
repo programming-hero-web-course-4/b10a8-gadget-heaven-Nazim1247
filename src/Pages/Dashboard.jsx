@@ -9,6 +9,17 @@ const Dashboard = () => {
     const allProducts = useLoaderData();
     const [addList, setAddList] = useState([]);
 
+    const [product, setProduct] = useState(addList);
+    const handleSort = (sortBy)=>{
+        if(sortBy === 'price'){
+            const sorted = addList.sort((a, b)=> b.price - a.price);
+            setProduct(sorted);
+            setAddList([])
+        }else{
+            setProduct(addList)
+        }
+    }
+
     // const [wishList, setWishList] = useState([]);
 
     // useEffect(()=>{
@@ -18,7 +29,7 @@ const Dashboard = () => {
     //     setWishList(wishProductList);
     // },[])
 
-    useEffect(()=>{
+    useEffect(() => {
         const storedAddList = getStoredList();
         const storedAddListInt = storedAddList.map(id => parseInt(id));
 
@@ -35,7 +46,17 @@ const Dashboard = () => {
                     <NavLink className="btn btn-sm">Wishlist</NavLink>
                 </div>
             </div>
+
+            <div className="flex justify-between items-center py-8">
+                <h3 className="text-xl font-bold">Cart</h3>
+                <div className="flex justify-center items-center gap-4">
+                    <h3>Total cost:</h3>
+                    <NavLink onClick={()=> handleSort('price')} className={({ isActive }) => `${isActive ? 'btn btn-sm bg-[#9538E2]' : ''}`}>Sort by Price</NavLink>
+                    <NavLink className={({ isActive }) => `${isActive ? 'btn btn-sm bg-[#9538E2]' : ''}`}>Purchase</NavLink>
+                </div>
+            </div>
             {addList.map(cart => <AddList key={cart.id} cart={cart}></AddList>)}
+            {product.map(cart => <AddList key={cart.id} cart={cart}></AddList>)}
             {/* {wishList.map(cart => <WishList key={cart.id} cart={cart}></WishList>)} */}
         </div>
     );

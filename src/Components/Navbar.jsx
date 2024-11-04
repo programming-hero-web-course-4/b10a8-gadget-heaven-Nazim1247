@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { GiRoyalLove } from "react-icons/gi";
 
 
@@ -9,9 +9,9 @@ const Navbar = () => {
                 <a className="text-xl">Gadget Heaven</a>
             </div>
             <div className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-8 w-9/12 mx-auto">
-            <Link to="/">Home</Link>
-            <Link to="/statistics">Statistics</Link>
-            <Link to="/dashboard">Dashboard</Link>
+            <NavLink className={({isActive})=> ` ${isActive?'bg-black btn btn-sm text-white rounded-full':''}`} to="/">Home</NavLink>
+            <NavLink className={({isActive})=> ` ${isActive?'bg-black btn btn-sm text-white rounded-full':''}`} to="/statistics">Statistics</NavLink>
+            <NavLink className={({isActive})=> ` ${isActive?'bg-black btn btn-sm text-white rounded-full':''}`} to="/dashboard">Dashboard</NavLink>
             </div>
             <div className="flex-none">
                 <div className="dropdown dropdown-end">
