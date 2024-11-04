@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "category": "Electronics",
+        "slug": "electronics"
+    },
+    {
+        "id": 2,
+        "category": "Home Appliances",
+        "slug": "home-appliances"
+    },
+    {
+        "id": 3,
+        "category": "Computers",
+        "slug": "computers"
+    },
+    {
+        "id": 4,
+        "category": "Mobile Phones",
+        "slug": "mobile-phones"
+    },
+    {
+        "id": 5,
+        "category": "Kitchen Appliances",
+        "slug": "kitchen-appliances"
+    },
+    {
+        "id": 6,
+        "category": "Cameras",
+        "slug": "cameras"
+    }
+]

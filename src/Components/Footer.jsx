@@ -3,11 +3,11 @@
 const Footer = () => {
     return (
         <div className="bg-slate-50">
-            <div className="text-center py-8 border-b-2 w-8/12 mx-auto">
+            <div className="md:text-center py-8 border-b-2 md:w-8/12 mx-auto">
                 <h3 className="text-xl font-bold">Gadget Heaven</h3>
                 <p className="text-gray-500">Leading the way in cutting-edge technology and innovation.</p>
             </div>
-            <footer className="footer p-10 w-8/12 mx-auto">
+            <footer className="footer md:p-10 md:w-8/12 mx-auto">
                 <nav>
                     <h6 className="footer-title">Services</h6>
                     <a className="w-32 mx-auto">Product Support

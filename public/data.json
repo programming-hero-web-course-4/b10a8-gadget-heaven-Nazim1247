@@ -1,0 +1,113 @@
+[
+    {
+      "id": 1,
+      "title": "Bluetooth Headphones",
+      "image": "https://i.ibb.co.com/8dy1VKV/wireless-earbuds-with-neon-cyberpunk-style-lighting.jpg",
+      "category": "Electronics",
+      "price": 79.99,
+      "description": "High-quality wireless Bluetooth headphones with noise cancellation.",
+      "specification": ["Bluetooth 5.0", "Noise Cancellation", "20 Hours Battery Life"],
+      "availability": true,
+      "rating": 4.5
+    },
+    {
+      "id": 2,
+      "title": "Smart LED TV 55 inch",
+      "image": "https://i.ibb.co.com/HFdW6Mt/television-houseplants-room-scene-generative-ai.jpg",
+      "category": "Home Appliances",
+      "price": 499.99,
+      "description": "Smart 4K LED TV with built-in apps and voice control.",
+      "specification": ["55 inches", "4K UHD", "Smart TV", "HDR"],
+      "availability": false,
+      "rating": 4.3
+    },
+    {
+      "id": 3,
+      "title": "Laptop",
+      "image": "https://i.ibb.co.com/pRTNp8L/neon-3d-cybermonday-celebration-template.jpg",
+      "category": "Computers",
+      "price": 1199.99,
+      "description": "High-performance gaming laptop with a powerful GPU.",
+      "specification": ["16GB RAM", "512GB SSD", "NVIDIA GTX 3060"],
+      "availability": true,
+      "rating": 4.8
+    },
+    {
+      "id": 4,
+      "title": "Smartphone",
+      "image": "https://i.ibb.co.com/2WBN3d3/hcmc-vietnam-jul-2023-oppo-reno-10-5g-2-RDJD2-X.jpg",
+      "category": "Mobile Phones",
+      "price": 699.99,
+      "description": "Sleek smartphone with triple rear camera and high-resolution display.",
+      "specification": ["128GB Storage", "6.5-inch Display", "5000mAh Battery"],
+      "availability": true,
+      "rating": 4.6
+    },
+    {
+      "id": 5,
+      "title": "Electric Kettle",
+      "image": "https://i.ibb.co.com/kVnrmpX/modern-metallic-teapot-with-transparent-pot-filtered-coffee-thick-wooden-table-cafe-shop.jpg",
+      "category": "Kitchen Appliances",
+      "price": 29.99,
+      "description": "Quick-boil electric kettle with automatic shut-off.",
+      "specification": ["1.7L Capacity", "Stainless Steel", "Auto Shut-off"],
+      "availability": true,
+      "rating": 4.2
+    },
+    {
+      "id": 6,
+      "title": "Digital Camera",
+      "image": "https://i.ibb.co.com/tL1GkCv/camera-3590531-1280.jpg",
+      "category": "Cameras",
+      "price": 599.99,
+      "description": "High-resolution digital camera with powerful zoom.",
+      "specification": ["20.1 MP", "4K Video", "10x Optical Zoom"],
+      "availability": false,
+      "rating": 4.4
+    },
+    {
+      "id": 7,
+      "title": "Portable Air Conditioner",
+      "image": "https://i.ibb.co.com/fXzLPf7/ai-generated-8110912-1280.jpg",
+      "category": "Home Appliances",
+      "price": 329.99,
+      "description": "Compact and energy-efficient portable air conditioner.",
+      "specification": ["7000 BTU", "Energy Efficient", "Remote Control"],
+      "availability": true,
+      "rating": 4.1
+    },
+    {
+      "id": 8,
+      "title": "Ergonomic Office Chair",
+      "image": "https://i.ibb.co.com/WGNn7rJ/istockphoto-1906733172-1024x1024.jpg",
+      "category": "Furniture",
+      "price": 149.99,
+      "description": "Comfortable ergonomic office chair with lumbar support.",
+      "specification": ["Adjustable Height", "Breathable Mesh", "Lumbar Support"],
+      "availability": true,
+      "rating": 4.7
+    },
+    {
+      "id": 9,
+      "title": "Wireless Charger Pad",
+      "image": "https://i.ibb.co.com/wMRvnYW/istockphoto-2032499944-1024x1024.jpg",
+      "category": "Electronics",
+      "price": 24.99,
+      "description": "Fast wireless charger compatible with most smartphones.",
+      "specification": ["10W Fast Charge", "Universal Compatibility"],
+      "availability": false,
+      "rating": 4.3
+    },
+    {
+      "id": 10,
+      "title": "Running Shoes",
+      "image": "https://i.ibb.co.com/X7ZL8FD/istockphoto-1688015574-1024x1024.jpg",
+      "category": "Sportswear",
+      "price": 89.99,
+      "description": "Lightweight running shoes with breathable mesh material.",
+      "specification": ["Breathable Mesh", "Non-slip Sole", "Lightweight"],
+      "availability": true,
+      "rating": 4.6
+    }
+  ]
+  
