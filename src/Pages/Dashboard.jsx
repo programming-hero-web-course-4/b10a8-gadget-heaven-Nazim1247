@@ -17,7 +17,8 @@ const Dashboard = () => {
 
     const handleRemove = (id)=>{
         removeCart(id);
-        console.log(id)
+        const storedAddList = getStoredList();
+        setAddList(storedAddList);
     }
 
     const handlePurchase = ()=>{

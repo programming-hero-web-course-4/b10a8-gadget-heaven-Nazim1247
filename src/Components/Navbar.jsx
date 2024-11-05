@@ -7,7 +7,7 @@ import './Navbar.css'
 
 const Navbar = () => {
     const {pathname} = useLocation()
-    const home = pathname === '/';
+    const isHome = pathname === '/';
    
     // const [add, setAdd] = useState([]);
     // setAdd(addList)
@@ -16,7 +16,7 @@ const Navbar = () => {
     // const get = getStoredList()
     // console.log(get)
     return (
-        <div className={`navbar px-8 mt-8 rounded-t-xl ${home?'active':'none-active'}`}>
+        <div className={`navbar px-8 mt-8 rounded-t-xl ${isHome?'active':'none-active'}`}>
             <div className="flex-1">
                 <a className="text-xl">Gadget Heaven</a>
             </div>
@@ -76,9 +76,6 @@ const Navbar = () => {
                     </ul>
                 </div>
             </div>
-            
-                
-            
         </div>
     );
 };

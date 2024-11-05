@@ -47,9 +47,7 @@ const addToStoredWishList = (id) => {
 const removeCart = (id) => {
     const removed = getStoredList();
     const remaining = removed.filter(cart => cart != parseInt(id));
-    console.log(removed, id)
     localStorage.setItem('add-list', JSON.stringify(remaining));
-    console.log(remaining)
     toast.success('Successfully Removed')
 }
 
