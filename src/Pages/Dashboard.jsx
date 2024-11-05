@@ -1,20 +1,36 @@
 import { useEffect, useState } from "react";
-import { NavLink, useLoaderData } from "react-router-dom";
-import { getStoredList } from "../Utilities";
+import { NavLink, useLoaderData, useLocation } from "react-router-dom";
+import { getStoredList, removeCart } from "../Utilities";
 import AddList from "../Components/AddList";
 import WishList from "../Components/WishList";
+import toast from "react-hot-toast";
 
 
 const Dashboard = () => {
     const allProducts = useLoaderData();
     const [addList, setAddList] = useState([]);
-
     const [product, setProduct] = useState(addList);
+    const [purchase, setPurchase] = useState(false);
+
+    // const {pathname} = useLocation();
+    // console.log(pathname);
+
+    const handleRemove = (id)=>{
+        removeCart(id);
+        console.log(id)
+    }
+
+    const handlePurchase = ()=>{
+        setAddList([]);
+        setPurchase(true);
+    }
+
     const handleSort = (sortBy)=>{
         if(sortBy === 'price'){
             const sorted = addList.sort((a, b)=> b.price - a.price);
             setProduct(sorted);
-            setAddList([])
+            setAddList([]);
+            toast.success('Sorted Successfully')
         }else{
             setProduct(addList)
         }
@@ -35,6 +51,9 @@ const Dashboard = () => {
 
         const addProductList = allProducts.filter(product => storedAddListInt.includes(product.id));
         setAddList(addProductList);
+        // if(addProductList){
+        //     setPurchase(true);
+        // }
     }, [])
     return (
         <div>
@@ -51,11 +70,12 @@ const Dashboard = () => {
                 <h3 className="text-xl font-bold">Cart</h3>
                 <div className="flex justify-center items-center gap-4">
                     <h3>Total cost:</h3>
-                    <NavLink onClick={()=> handleSort('price')} className={({ isActive }) => `${isActive ? 'btn btn-sm bg-[#9538E2]' : ''}`}>Sort by Price</NavLink>
-                    <NavLink className={({ isActive }) => `${isActive ? 'btn btn-sm bg-[#9538E2]' : ''}`}>Purchase</NavLink>
+                    <NavLink onClick={()=> handleSort('price')} className={({ isActive }) => `${isActive ? 'active btn btn-sm bg-[#9538E2]' : ''}`}>Sort by Price</NavLink>
+                    <NavLink disabled={purchase} onClick={handlePurchase} className={({ isActive }) => `${isActive ? 'btn btn-sm bg-[#9538E2]' : ''}`}>Purchase</NavLink>
                 </div>
             </div>
-            {addList.map(cart => <AddList key={cart.id} cart={cart}></AddList>)}
+            addList: {addList.length}
+            {addList.map(cart => <AddList handleRemove={handleRemove} key={cart.id} cart={cart}></AddList>)}
             {product.map(cart => <AddList key={cart.id} cart={cart}></AddList>)}
             {/* {wishList.map(cart => <WishList key={cart.id} cart={cart}></WishList>)} */}
         </div>

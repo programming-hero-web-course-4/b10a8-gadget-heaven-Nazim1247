@@ -2,8 +2,8 @@ import { Link, NavLink } from "react-router-dom";
 import { MdOutlineDeleteForever } from "react-icons/md";
 
 
-const AddList = ({ cart }) => {
-    const { image, title, price, description } = cart;
+const AddList = ({ cart, handleRemove }) => {
+    const { id, image, title, price, description } = cart;
     return (
         <div>
             <div className="flex items-center gap-6 my-6">
@@ -14,7 +14,7 @@ const AddList = ({ cart }) => {
                         <p className="text-gray-400">{description}</p>
                         <p>Price: {price}</p>
                     </div>
-                    <Link className="btn btn-sm text-xl p-2 rounded-2xl">
+                    <Link onClick={()=>handleRemove(id)} className="btn btn-sm text-xl p-2 rounded-2xl">
                         <MdOutlineDeleteForever />
                     </Link>
                 </div>

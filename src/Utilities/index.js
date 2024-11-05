@@ -1,43 +1,56 @@
-const getStoredList = ()=>{
+import toast from "react-hot-toast";
+
+const getStoredList = () => {
     const storedListStr = localStorage.getItem('add-list');
-    if(storedListStr){
+    if (storedListStr) {
         const storedList = JSON.parse(storedListStr);
         return storedList;
-    }else{
+    } else {
         return [];
     }
 }
 
-const addToStoredList = (id)=>{
+const addToStoredList = (id) => {
     const storedList = getStoredList();
-    if(storedList.includes(id)){
-        alert('already added');
-    }else{
+    if (storedList.includes(id)) {
+        toast.error('already added');
+    } else {
         storedList.push(id);
         const storedListStr = JSON.stringify(storedList);
         localStorage.setItem('add-list', storedListStr);
+        toast.success('successfully added');
     }
 }
 
-const getStoredWishList = ()=>{
+const getStoredWishList = () => {
     const storedListStr = localStorage.getItem('wish-list');
-    if(storedListStr){
+    if (storedListStr) {
         const storedList = JSON.parse(storedListStr);
         return storedList;
-    }else{
+    } else {
         return [];
     }
 }
 
-const addToStoredWishList = (id)=>{
+const addToStoredWishList = (id) => {
     const storedList = getStoredWishList();
-    if(storedList.includes(id)){
-        alert('already added');
-    }else{
+    if (storedList.includes(id)) {
+        toast.error('already added');
+    } else {
         storedList.push(id);
         const storedListStr = JSON.stringify(storedList);
         localStorage.setItem('wish-list', storedListStr);
+        toast.success('successfully added');
     }
 }
 
-export {addToStoredList,addToStoredWishList,getStoredList}
+const removeCart = (id) => {
+    const removed = getStoredList();
+    const remaining = removed.filter(cart => cart != parseInt(id));
+    console.log(removed, id)
+    localStorage.setItem('add-list', JSON.stringify(remaining));
+    console.log(remaining)
+    toast.success('Successfully Removed')
+}
+
+export { addToStoredList, addToStoredWishList, getStoredList, removeCart }
