@@ -48,7 +48,8 @@ const removeCart = (id) => {
     const removed = getStoredList();
     const remaining = removed.filter(cart => cart != parseInt(id));
     localStorage.setItem('add-list', JSON.stringify(remaining));
+    localStorage.setItem('wish-list', JSON.stringify(remaining));
     toast.success('Successfully Removed')
 }
 
-export { addToStoredList, addToStoredWishList, getStoredList, removeCart }
+export { addToStoredList, addToStoredWishList, getStoredList, removeCart, getStoredWishList }

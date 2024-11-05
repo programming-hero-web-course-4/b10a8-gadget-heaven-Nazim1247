@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, useLoaderData, useLocation } from "react-router-dom";
-import { getStoredList, removeCart } from "../Utilities";
+import {  getStoredList, getStoredWishList, removeCart } from "../Utilities";
 import AddList from "../Components/AddList";
 import WishList from "../Components/WishList";
 import toast from "react-hot-toast";
@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 const Dashboard = () => {
     const allProducts = useLoaderData();
     const [addList, setAddList] = useState([]);
+    const [wishList, setWishList] = useState([]);
     const [product, setProduct] = useState(addList);
     const [purchase, setPurchase] = useState(false);
 
@@ -19,6 +20,13 @@ const Dashboard = () => {
         removeCart(id);
         const storedAddList = getStoredList();
         setAddList(storedAddList);
+    }
+
+    const handleRemoveWish = (id)=>{
+        removeCart(id);
+        console.log(id)
+        const wishAddList = getStoredWishList();
+        setWishList(wishAddList);
     }
 
     const handlePurchase = ()=>{
@@ -37,14 +45,21 @@ const Dashboard = () => {
         }
     }
 
-    // const [wishList, setWishList] = useState([]);
+    const handleAddWish = (cart)=>{
+        if(cart === 'addList'){
+            
+            console.log('this is cart',cart)
+        }else if(cart === 'wishList'){
+            console.log('this is wish',cart)
+        }
+    }
 
-    // useEffect(()=>{
-    //     const wishAddList = getStoredList();
-    //     const wishProductListInt = wishAddList.map(id => parseInt(id));
-    //     const wishProductList = allProducts.filter(product => wishProductListInt.includes(product.id));
-    //     setWishList(wishProductList);
-    // },[])
+    useEffect(()=>{
+        const wishAddList = getStoredWishList();
+        const wishProductListInt = wishAddList.map(id => parseInt(id));
+        const wishProductList = allProducts.filter(product => wishProductListInt.includes(product.id));
+        setWishList(wishProductList);
+    },[])
 
     useEffect(() => {
         const storedAddList = getStoredList();
@@ -52,6 +67,7 @@ const Dashboard = () => {
 
         const addProductList = allProducts.filter(product => storedAddListInt.includes(product.id));
         setAddList(addProductList);
+
         // if(addProductList){
         //     setPurchase(true);
         // }
@@ -62,8 +78,8 @@ const Dashboard = () => {
                 <h3 className="text-2xl font-bold">Dashboard</h3>
                 <p className="text-gray-300 md:w-8/12 mx-auto">Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!</p>
                 <div className="space-x-4 mt-4">
-                    <NavLink className="btn btn-sm">AddList</NavLink>
-                    <NavLink className="btn btn-sm">Wishlist</NavLink>
+                    <NavLink onClick={()=>handleAddWish('addList')} className="btn btn-sm">AddList</NavLink>
+                    <NavLink onClick={()=>handleAddWish('wishList')} className="btn btn-sm">Wishlist</NavLink>
                 </div>
             </div>
 
@@ -76,9 +92,12 @@ const Dashboard = () => {
                 </div>
             </div>
             addList: {addList.length}
+
+            {/* <Outlet></Outlet> */}
+
             {addList.map(cart => <AddList handleRemove={handleRemove} key={cart.id} cart={cart}></AddList>)}
             {product.map(cart => <AddList key={cart.id} cart={cart}></AddList>)}
-            {/* {wishList.map(cart => <WishList key={cart.id} cart={cart}></WishList>)} */}
+            {wishList.map(cart => <WishList handleRemoveWish={handleRemoveWish} key={cart.id} cart={cart}></WishList>)}
         </div>
     );
 };
