@@ -1,11 +1,13 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { GiRoyalLove } from "react-icons/gi";
 import './Navbar.css'
+
 // import { addToStoredList, getStoredList } from "../Utilities";
 // import { useState } from "react";
 
 
 const Navbar = () => {
+
     const {pathname} = useLocation()
     const isHome = pathname === '/';
    
