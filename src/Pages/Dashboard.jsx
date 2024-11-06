@@ -1,5 +1,5 @@
 import {  useEffect, useState } from "react";
-import { NavLink, useLoaderData } from "react-router-dom";
+import { NavLink, useLoaderData, useNavigate } from "react-router-dom";
 import { getStoredList, getStoredWishList, removeCart } from "../Utilities";
 import AddList from "../Components/AddList";
 import WishList from "../Components/WishList";
@@ -9,15 +9,22 @@ import group from '../assets/Group.png';
 
 const Dashboard = () => {
     const allProducts = useLoaderData();
+    const [modal, setModal] = useState(false);
     const [addList, setAddList] = useState([]);
     const [wishList, setWishList] = useState([]);
     const [product, setProduct] = useState(addList);
-
     const [purchase, setPurchase] = useState(false);
     const [active, setActive] = useState({
         cart: true,
         status: 'addList'
-    })
+    });
+
+    const navigate = useNavigate();
+
+    let sum = 0;
+    for(let i = 0; i < addList.length; i++){
+        sum += addList[i].price;
+    }
 
 
     const handleRemove = (id) => {
@@ -35,18 +42,19 @@ const Dashboard = () => {
     const handlePurchase = () => {
         setAddList([]);
         setPurchase(true);
+        navigate('/')
     }
 
     const handleSort = () => {
-        // const sorted = [...addList].sort((a, b) => b.price - a.price);
-        // console.log(sorted, addList)
-        // setAddList(sorted);
-        // toast.success('Sorted Successfully')
-
         const sorted = [...addList].sort((a, b) => b.price - a.price);
         console.log(sorted, addList)
-        setProduct(sorted);
+        setAddList(sorted);
         toast.success('Sorted Successfully')
+
+        // const sorted = [...addList].sort((a, b) => b.price - a.price);
+        // console.log(sorted, addList)
+        // setProduct(sorted);
+        // toast.success('Sorted Successfully')
 
         // if (sortBy === 'price') {
         //     const sorted = [...addList].sort((a, b) => b.price - a.price);
@@ -91,7 +99,7 @@ const Dashboard = () => {
         // }
     }, [allProducts])
 
-    const [modal, setModal] = useState(false);
+    
     const openModal = () => {
         setModal(true);
     }
@@ -128,7 +136,7 @@ const Dashboard = () => {
                             <h3 className="text-xl font-bold mb-2">Payment Successfully</h3>
                             <hr className="mb-2" />
                             <p className="text-gray-500 mb-2">Thanks for purchasing.
-                                Total:2449.96</p>
+                                Total: {sum}</p>
                             <button className="btn btn-sm w-full rounded-full" onClick={closeModal}>close</button>
                         </div>
                     </div>
@@ -144,24 +152,27 @@ const Dashboard = () => {
                 </div>
             </div>
 
-            <div className="flex justify-between items-center py-8">
-                <h3 className="text-xl font-bold">Cart</h3>
-                <div className="flex justify-center items-center gap-4">
-                    <h3>Total cost: {addList.length}</h3>
-                    <NavLink onClick={()=>handleSort()} className={({ isActive }) => `${isActive ? 'btn btn-sm bg-[#9538E2]' : ''}`}>Sort by Price</NavLink>
-                    <NavLink disabled={purchase} onClick={() => (handlePurchase(), openModal())} className={({ isActive }) => `${isActive ? 'btn btn-sm bg-[#9538E2]' : ''}`}>Purchase</NavLink>
-                </div>
-            </div>
+            
 
             addList: {addList.length}
 
 
+            <div>
+            <div className="flex justify-between items-center py-8">
+                <h3 className="text-xl font-bold">Cart</h3>
+                <div className="flex justify-center items-center gap-4">
+                    <h3>Total cost: {sum}</h3>
+                    <button onClick={()=>handleSort()} className="bg-[#9538E2] btn btn-sm rounded-full">Sort by Price</button>
+                    <button disabled={purchase} onClick={() => (handlePurchase(), openModal())} className="bg-[#9538E2] btn btn-sm rounded-full">Purchase</button>
+                </div>
+            </div>
             {
                 active.cart ? addList.map(cart => <AddList handleRemove={handleRemove} key={cart.id} cart={cart}></AddList>) : wishList.map(cart => <WishList handleRemoveWish={handleRemoveWish} key={cart.id} cart={cart}></WishList>)
             }
+            </div>
 
             
-            {product.map(cart => <AddList key={cart.id} cart={cart}></AddList>)}
+            {/* {product.map(cart => <AddList key={cart.id} cart={cart}></AddList>)} */}
         </div>
     );
 };

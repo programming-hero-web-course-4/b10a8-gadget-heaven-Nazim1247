@@ -19,6 +19,11 @@ const ProductDetail = () => {
 
     const handleAddToCard = (id)=>{
         addToStoredList(id);
+        // console.log(product.price)
+        // const totalPrice = product.reduce((accumulator, current) =>{
+        //     console.log(totalPrice)
+        //     return accumulator + current.price;
+        // }, 0);
     }
 
     const handleAddToWish = (id)=>{
