@@ -15,6 +15,7 @@ const Navbar = () => {
             <NavLink className={({isActive})=> ` ${isActive?'bg-black btn btn-sm text-white rounded-full':''}`} to="/">Home</NavLink>
             <NavLink className={({isActive})=> ` ${isActive?'bg-black btn btn-sm text-white rounded-full':''}`} to="/statistics">Statistics</NavLink>
             <NavLink className={({isActive})=> ` ${isActive?'bg-black btn btn-sm text-white rounded-full':''}`} to="/dashboard">Dashboard</NavLink>
+            <NavLink className={({isActive})=> ` ${isActive?'bg-black btn btn-sm text-white rounded-full':''}`} to="/favorites">Favorites</NavLink>
             </div>
             <div className="flex-none">
                 <div className="dropdown dropdown-end">

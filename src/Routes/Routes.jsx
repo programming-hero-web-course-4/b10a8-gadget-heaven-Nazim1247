@@ -7,6 +7,7 @@ import Dashboard from "../Pages/Dashboard";
 import ErrorPage from "../Components/ErrorPage";
 import ProductsCard from "../Components/ProductsCard";
 import ProductDetail from "../Components/ProductDetail";
+import Favorites from "../Pages/Favorites";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
         {
             path: "/dashboard",
             element: <Dashboard></Dashboard>,
+            loader: ()=> fetch('../data.json'),
+        },
+        {
+            path: "/favorites",
+            element: <Favorites></Favorites>,
             loader: ()=> fetch('../data.json'),
         }
       ]

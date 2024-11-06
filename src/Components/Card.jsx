@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
 
 const Card = ({ product }) => {
-    const { id, title, image, price, category } = product;
+    const { id, title, image, price } = product;
     return (
         <div className="card bg-base-100 shadow-md">
             <figure className="px-6 pt-6">

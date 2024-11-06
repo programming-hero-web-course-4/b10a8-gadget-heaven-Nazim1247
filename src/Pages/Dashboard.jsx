@@ -123,8 +123,8 @@ const Dashboard = () => {
                 <h3 className="text-2xl font-bold">Dashboard</h3>
                 <p className="text-gray-300 md:w-8/12 mx-auto">Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!</p>
                 <div className="space-x-4 mt-4">
-                    <NavLink onClick={() => handleAddWish('addList')} className={`${active.cart ? 'btn btn-sm bg-black' : 'btn btn-sm'}`}>Cart</NavLink>
-                    <NavLink onClick={() => handleAddWish('wishList')} className={`${active.cart ? 'btn btn-sm' : 'btn btn-sm text-black bg-white'}`}>Wishlist</NavLink>
+                    <NavLink onClick={() => handleAddWish('addList')} className={`${active.cart ? 'btn btn-tiny' : 'btn btn-sm'}`}>Cart</NavLink>
+                    <NavLink onClick={() => handleAddWish('wishList')} className={`${active.cart ? 'btn btn-sm' : 'btn btn-tiny'}`}>Wishlist</NavLink>
                 </div>
             </div>
 
