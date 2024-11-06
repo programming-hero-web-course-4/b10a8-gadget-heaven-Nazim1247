@@ -6,6 +6,9 @@ const AddList = ({ cart, handleRemove }) => {
     const { id, image, title, price, description } = cart;
     return (
         <div>
+            <div>
+            {/* <h3>cart: {cart.length}</h3> */}
+            </div>
             <div className="flex items-center gap-6 my-6">
                 <img className="w-36 rounded-xl" src={image} alt="" />
                 <div className="flex justify-between items-center w-full">

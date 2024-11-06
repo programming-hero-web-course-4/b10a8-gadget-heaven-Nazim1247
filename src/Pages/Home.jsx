@@ -10,6 +10,7 @@ const Home = () => {
             {/* banner */}
             <Banner></Banner>
             {/* categories and product */}
+            <h2 className="text-3xl font-bold text-center text-[#9538E2] mb-4">Explore Cutting-Edge Gadgets</h2>
             <div className="flex">
             <Categories categories={categories}></Categories>
             <Outlet></Outlet>
