@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 
 import { Link } from "react-router-dom";
 import { MdOutlineDeleteForever } from "react-icons/md";
@@ -6,14 +7,6 @@ const WishList = ({ cart, handleRemoveWish }) => {
     const { id, image, title, price, description } = cart;
     return (
         <div>
-            {/* <div className="flex justify-between items-center">
-                <h3>Cart</h3>
-                <div className="flex justify-center items-center gap-4">
-                    <h3>Total cost:</h3>
-                    <NavLink>Sort by Price</NavLink>
-                    <NavLink>Purchase</NavLink>
-                </div>
-            </div> */}
             <div className="flex items-center gap-6 my-6">
                 <img className="w-36 rounded-xl" src={image} alt="" />
                 <div className="flex justify-between items-center w-full">

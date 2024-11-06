@@ -10,7 +10,8 @@ const ProductDetail = () => {
     const data = useLoaderData();
     const { id } = useParams();
     const [product, setProduct] = useState({});
-    const { id: productId, title, image, category, price, description, specification, availability, rating } = product;
+    const { title, image, price, description, specification, rating } = product;
+    const [wish, setWish] = useState(false);
 
     useEffect(() => {
         const singleData = data.find(product => product.id == id);
@@ -19,15 +20,11 @@ const ProductDetail = () => {
 
     const handleAddToCard = (id)=>{
         addToStoredList(id);
-        // console.log(product.price)
-        // const totalPrice = product.reduce((accumulator, current) =>{
-        //     console.log(totalPrice)
-        //     return accumulator + current.price;
-        // }, 0);
     }
 
     const handleAddToWish = (id)=>{
         addToStoredWishList(id);
+        setWish(true)
     }
 
     return (
@@ -70,9 +67,9 @@ const ProductDetail = () => {
                         <Link onClick={()=>handleAddToCard(id)} className="btn btn-sm rounded-full bg-[#9538E2] text-white">Add to Card
                             <IoCartOutline />
                         </Link>
-                        <Link onClick={()=>handleAddToWish(id)} className="btn btn-sm text-xl rounded-full p-2">
+                        <button disabled={wish} onClick={()=>handleAddToWish(id)} className="btn btn-sm text-xl rounded-full p-2">
                             <GiRoyalLove />
-                        </Link>
+                        </button>
                     </div>
                 </div>
             </div>
